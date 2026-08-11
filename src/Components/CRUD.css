@@ -1,0 +1,116 @@
+*{
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.header{
+  display: flex;
+  /* Prevent child elements from stretching vertically */
+  align-items: center; /* or flex-start */
+  justify-content: space-around;
+  gap: 1rem;
+}
+
+.listForm{
+    display: flex;
+    justify-content: center;
+}
+
+.searchForm{
+    display: flex;
+    justify-content: center;
+}
+
+.searchForm input{
+    padding: 8px;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.searchForm select{
+    margin-left: 5px;
+    padding: 8px;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+button {
+  /* Prevent the button from expanding horizontally */
+  flex-grow: 0; 
+  flex-shrink: 0;
+  margin: 5px;
+  padding: 8px;
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+.formModal input{
+    margin-top: 5px;
+    margin-bottom: 10px;
+    padding: 8px;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.form-submit-BTN{
+    display: flex;
+    justify-content: end;
+}
+
+.form-close-BTN{
+    display: flex;
+    justify-content: end;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+}
+
+.formModal select {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    padding: 8px;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 10px;
+    width: 100%;
+}
+
+table{
+    border-collapse: collapse;
+    padding: 10px;
+    text-align: center;
+}
+
+th{
+    background-color: black;
+    color: white;
+}
+
+th, tr, td{
+    padding: 10px;
+}
+
+.table-edit{
+    background-color: #c8c1c1;
+    border-color: #c8c1c1;
+}
+
+.table-del{
+    background-color: #ff0b0b;
+    border-color: #ff0b0b;
+}
+
+.del-confirm-btn{
+    display: flex;
+    justify-content: end;
+}
+
+.add-emp-btn{
+    background-color: #1ae01af7;
+    border-color: #1ae01af7;
+}

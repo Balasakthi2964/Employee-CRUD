@@ -3,6 +3,7 @@ import EmpForm from './Components/Emp-Form'
 import './Components/CRUD.css'
 import EmpTable from './Components/Emp-Table'
 import EmpSearch from './Components/Emp-Search'
+import Stats from './Components/Stats'
 
 function App() {
   const [emps, setEmp] = useState(()=>{
@@ -24,6 +25,7 @@ function App() {
     <>
       <div>
         <EmpForm addEmp={addEmp}/><br />
+        <Stats emps={emps}/>
         <EmpSearch emps={emps} setEmps={setEmp}/>
       </div>
     </>

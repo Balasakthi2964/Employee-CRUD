@@ -114,3 +114,21 @@ th, tr, td{
     background-color: #1ae01af7;
     border-color: #1ae01af7;
 }
+.statsDiv {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+
+}
+
+.statsDiv span {
+    
+    flex: 0 150px;
+    padding: 5px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-bottom: 40px;
+}
+.statsDiv span h1{
+    text-align: center;
+}

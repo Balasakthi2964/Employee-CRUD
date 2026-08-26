@@ -114,21 +114,40 @@ th, tr, td{
     background-color: #1ae01af7;
     border-color: #1ae01af7;
 }
+
+
 .statsDiv {
     display: flex;
-    gap: 40px;
+    gap: 25px;
     justify-content: center;
-
-}
-
-.statsDiv span {
-    
-    flex: 0 150px;
-    padding: 5px;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     margin-bottom: 40px;
 }
-.statsDiv span h1{
+
+.statsDiv > div {
+    flex: 1;
+    max-width: 220px;
+    padding: 20px;
+    border: 1px solid #e5e5e5;
+    border-radius: 15px;
+    background: #fff;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.statsDiv > div:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.statsDiv > div h1 {
     text-align: center;
+    font-size: 32px;
+    margin: 10px 0;
+}
+
+.statsDiv > div p {
+    text-align: center;
+    color: #777;
+    margin: 0;
 }

@@ -10,22 +10,22 @@ export default function Stats({emps}){
     return(
         <>
             <div className="statsDiv">
-                <span>
+                <div>
                     <p>Total</p>
                     <h1>{emps.length}</h1>
-                </span>
-                <span>
+                </div>
+                <div>
                     <p>Active</p>
                     <h1>{activeEmps.length}</h1>
-                </span>
-                <span>
+                </div>
+                <div>
                     <p>Departments</p>
                     <h1>{departments.size}</h1>
-                </span>
-                <span>
+                </div>
+                <div>
                     <p>Average Salary</p>
-                    <h1>{Math.round(avgSalary)}</h1>
-                </span>
+                    <h1>₹{Math.round(avgSalary).toLocaleString("en-IN")}</h1>
+                </div>
             </div>
         </>
     )

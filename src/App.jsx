@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import EmpForm from './Components/Emp-Form'
 import './Components/CRUD.css'
-import EmpTable from './Components/Emp-Table'
 import EmpSearch from './Components/Emp-Search'
 import Stats from './Components/Stats'
 
@@ -10,7 +9,8 @@ function App() {
     const saved = localStorage.getItem("emps")
     return saved ? JSON.parse(saved) : []
   })
-  const [listpage, setListpage] = useState(false)
+
+
 
   function addEmp(newEmp){
     setEmp([...emps,newEmp])

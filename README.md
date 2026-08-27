@@ -25,20 +25,6 @@ A simple Employee Management System built with React.js that allows users to cre
 * React Context API
 * Browser Local Storage
 
-## 📂 Project Structure
-
-src/
-├── components/
-│   ├── EmpForm.jsx
-│   ├── EmpSearch.jsx
-│   ├── EmpTable.jsx
-│   └── Modal.jsx
-│
-├── App.jsx
-├── main.jsx
-└── ...
-
-
 ## ⚙️ Getting Started
 
 ### 1. Clone the repository

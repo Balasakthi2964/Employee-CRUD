@@ -22,6 +22,9 @@ export default function EmpSearch({emps, setEmps}){
                         <option value="">All</option>
                         <option value="IT">IT</option>
                         <option value="HR">HR</option>
+                        <option value="Finance">Finance</option>
+                        <option value="Marketing">Marketing</option>
+                        <option value="Operations">Operations</option>
                         <option value="Sales">Sales</option>
                     </select>
                 </form>

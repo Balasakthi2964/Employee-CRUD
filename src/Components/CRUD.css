@@ -3,6 +3,18 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+body {
+    background: linear-gradient(
+        135deg,
+        #dceade 0%,
+        #e0eee1 15%,
+        #d9ebda 50%,
+        #c9e2ca 100%
+    );
+    min-height: 100vh;
+    margin: 0;
+}
+
 .header{
   display: flex;
   /* Prevent child elements from stretching vertically */
@@ -16,24 +28,50 @@
     justify-content: center;
 }
 
-.searchForm{
+.searchForm {
     display: flex;
     justify-content: center;
 }
 
-.searchForm input{
-    padding: 8px;
-    background-color: white;
-    border: 2px solid black;
+.searchForm input {
+    padding: 9px 12px;
+    background-color: #ffffff;
+    border: 2px solid #b8cdb9;
     border-radius: 10px;
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        background-color 0.2s ease,
+        transform 0.2s ease;
 }
 
-.searchForm select{
+.searchForm input:focus {
+    border-color: #6fa874;
+    background-color: #f8fcf8;
+    transform: translateY(-1px);
+}
+
+.searchForm select {
     margin-left: 5px;
-    padding: 8px;
-    background-color: white;
-    border: 2px solid black;
+    padding: 9px 12px;
+    background-color: #ffffff;
+    border: 2px solid #b8cdb9;
     border-radius: 10px;
+    outline: none;
+    cursor: pointer;
+
+    transition:
+        border-color 0.2s ease,
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.searchForm select:hover,
+.searchForm select:focus {
+    border-color: #6fa874;
+    background-color: #f8fcf8;
+    transform: translateY(-1px);
 }
 
 button {
@@ -61,6 +99,25 @@ button {
     display: flex;
     justify-content: end;
 }
+.form-submit-BTN button {
+    background-color: #4a90e2;
+    border-color: #4a90e2;
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background-color 0.2s ease;
+}
+
+.form-submit-BTN button:hover {
+    background-color: #357abd;
+    transform: translateY(-3px);
+}
+
+.form-submit-BTN button:active {
+    background-color: #2f6da8;
+    transform: translateY(0);
+}
 
 .form-close-BTN{
     display: flex;
@@ -80,39 +137,129 @@ button {
     width: 100%;
 }
 
-table{
-    border-collapse: collapse;
-    padding: 10px;
+table {
+    width: 75%;
+    border-collapse: separate;
+    border-spacing: 0;
     text-align: center;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
-th{
+/* Table header */
+th {
     background-color: black;
     color: white;
+    padding: 12px 10px;
+    font-weight: 600;
 }
 
-th, tr, td{
-    padding: 10px;
+/* Table cells */
+th,
+td {
+    padding: 12px 10px;
+    border-bottom: 1px solid #e5e5e5;
 }
 
-.table-edit{
+/* Remove border from last row */
+tr:last-child td {
+    border-bottom: none;
+}
+
+/* Row hover animation */
+tbody tr {
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+tbody tr:hover {
+    background-color: #f5f5f5;
+}
+
+.table-edit {
     background-color: #c8c1c1;
     border-color: #c8c1c1;
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background-color 0.2s ease;
 }
 
-.table-del{
+.table-edit:hover {
+    transform: translateY(-3px);
+    background-color: #b8b1b1;
+}
+
+.table-edit:active {
+    transform: translateY(0);
+}
+
+
+.table-del {
     background-color: #ff0b0b;
     border-color: #ff0b0b;
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background-color 0.2s ease;
 }
 
-.del-confirm-btn{
+.table-del:hover {
+    transform: translateY(-3px);
+    background-color: #e00000;
+}
+
+.table-del:active {
+    transform: translateY(0);
+}
+
+.del-confirm-btn {
     display: flex;
     justify-content: end;
 }
 
-.add-emp-btn{
+.del-confirm-btn button {
+    background-color: #f59e0b;
+    border-color: #f59e0b;
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background-color 0.2s ease;
+}
+
+.del-confirm-btn button:hover {
+    background-color: #d97706;
+    transform: translateY(-3px);
+}
+
+.del-confirm-btn button:active {
+    background-color: #b45309;
+    transform: translateY(0);
+}
+
+.add-emp-btn {
     background-color: #1ae01af7;
-    border-color: #1ae01af7;
+    border: 1px solid #1ae01af7;
+    padding: 10px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+
+    transition: 
+        transform 0.2s ease,
+        background-color 0.2s ease;
+}
+
+.add-emp-btn:hover {
+    transform: translateY(-3px);
+    background-color: #19cc19;
+}
+
+.add-emp-btn:active {
+    transform: translateY(0);
 }
 
 

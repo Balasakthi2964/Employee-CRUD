@@ -51,6 +51,9 @@ export default function EmpForm({addEmp}){
                     <select required onChange={e => setDep(e.target.value)} value={dep}>
                         <option value="IT">IT</option>
                         <option value="HR">HR</option>
+                        <option value="Finance">Finance</option>
+                        <option value="Marketing">Marketing</option>
+                        <option value="Operations">Operations</option>
                         <option value="Sales">Sales</option>
                     </select>
                     <br />

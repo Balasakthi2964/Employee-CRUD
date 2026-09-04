@@ -1,24 +1,32 @@
 import { useState } from "react"
-import EmpTable from "./Emp-Table"
 
-export default function EmpSearch({emps, setEmp}){
+export default function EmpSearch({setSearch, setDepartment, setPage}){
 
     const [searchname, setSearchname] = useState("")
     const [searchdep, setSearchdep] = useState("")
     
-    const foundEmp = emps.filter((emp) =>{
-        const nameMatch = emp.name.toLowerCase().includes(searchname.toLowerCase());
-        const departmentMatch = emp.dep.toLowerCase().includes(searchdep.toLowerCase());
-        return nameMatch && departmentMatch
-    }
-    )
+    const handleNameSearch = (e) => {
+        const value = e.target.value;
+
+        setSearchname(value);
+        setSearch(value);
+        setPage(1);
+    };
+
+    const handleDepartmentSearch = (e) => {
+        const value = e.target.value;
+
+        setSearchdep(value);
+        setDepartment(value);
+        setPage(1);
+    };
         
     return(
         <>
             <div className="searchForm">
                 <form >
-                    <input type="text" placeholder="Search Employee" onChange={(e)=>{setSearchname(e.target.value)}} value={searchname}/>
-                    <select onChange={(e)=>{setSearchdep(e.target.value)}} value={searchdep}>
+                    <input type="text" placeholder="Search Employee" onChange={handleNameSearch} value={searchname}/>
+                    <select onChange={handleDepartmentSearch} value={searchdep}>
                         <option value="">All</option>
                         <option value="IT">IT</option>
                         <option value="HR">HR</option>
@@ -29,7 +37,6 @@ export default function EmpSearch({emps, setEmp}){
                     </select>
                 </form>
             </div>
-            {foundEmp && <EmpTable emps={foundEmp} employees={emps} setEmp={setEmp}/> }
         </>
     )
 }

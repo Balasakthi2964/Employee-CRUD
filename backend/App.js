@@ -4,7 +4,9 @@ const db = require('./DB')
 const app = express()
 const Emp = require('./Model')
 
-app.use(cors())
+app.use(cors({
+    exposedHeaders: ["X-Total-Employees"]
+}));
 app.use(express.json())
 
 app.post('/api/emps', async (req, res) => {
@@ -13,9 +15,65 @@ app.post('/api/emps', async (req, res) => {
     res.json(saved)
 })
 
+app.get("/api/emps/stats", async (req, res) => {
+
+    const totalEmployees = await Emp.countDocuments();
+
+    const activeEmployees = await Emp.countDocuments({
+        active: "Yes"
+    });
+
+    const departments = await Emp.distinct("dep");
+
+    const salaryResult = await Emp.aggregate([
+        {
+            $group: {
+                _id: null,
+                avgSalary: { $avg: "$salary" }
+            }
+        }
+    ]);
+
+    res.json({
+        totalEmployees,
+        activeEmployees,
+        totalDepartments: departments.length,
+        avgSalary: salaryResult[0]?.avgSalary || 0
+    });
+});
+
 app.get('/api/emps', async (req, res)=>{
-    const emps = await Emp.find()
-    res.json(emps)
+    const page = Number(req.query.page) || 1;
+    const limit = Number(req.query.limit) || 5;
+    const search = req.query.search || "";
+    const dep = req.query.dep || "";
+
+    const filter = {};
+
+    if (search) {
+        filter.name = {
+
+            $regex: search,
+            $options: "i"
+        };
+    }
+
+    if (dep) {
+        filter.dep = dep;
+    }
+
+    const skip = (page - 1) * limit;
+
+    const emps = await Emp.find(filter)
+        .sort({id: 1})
+        .skip(skip)
+        .limit(limit);
+
+    const totalEmployees = await Emp.countDocuments(filter);
+    
+    res.set("X-Total-Employees", totalEmployees.toString());
+
+    res.json(emps);
 })
 
 app.put('/api/emps/:id', async (req, res)=>{
